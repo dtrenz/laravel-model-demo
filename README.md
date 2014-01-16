@@ -1,5 +1,4 @@
-
-Eloquent Model Relationship Demo (Laravel 4.1)
+Eloquent Model Relationship Demo
 ==============================================
 
 This Laravel project is meant to illustrate the various Eloquent model relationships available in Laravel 4.1, including;
