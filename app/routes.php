@@ -12,9 +12,12 @@
 */
 
 Route::model('post', 'Post');
+Route::model('user', 'User');
 
 Route::get('/', 'HomeController@index');
 
 Route::get('/post/{post}', 'PostController@show');
 
-Route::get('/tag/{tag}', 'TagController@show');
+Route::get('/tag/{name}', 'TagController@show');
+
+Route::get('/author/{user}', 'AuthorController@show');

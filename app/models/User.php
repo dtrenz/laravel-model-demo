@@ -16,7 +16,7 @@ class User extends Eloquent {
      */
     public function posts()
     {
-        return $this->hasMany('Post', 'id', 'author_id');
+        return $this->hasMany('Post', 'author_id');
     }
 
     /**
@@ -27,6 +27,16 @@ class User extends Eloquent {
     public function image()
     {
         return $this->morphOne('Image', 'imageable');
+    }
+
+    /**
+     * Defines a has-many-through relationship.
+     *
+     * @see http://laravel.com/docs/eloquent#polymorphic-relations
+     */
+    public function tags()
+    {
+        return $this->hasManyThrough('Tag', 'Post', 'author_id');
     }
 
 }

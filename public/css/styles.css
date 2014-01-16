@@ -50,9 +50,7 @@ em {
 }
 
 
-/*
-* Post styles
-*/
+/* Post styles */
 
 .post .meta {
     height: 36px;
@@ -81,6 +79,14 @@ em {
 .post footer { margin-top: 30px; }
 
 .post footer .thumbnail {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0 15px 0 0;
+}
+
+/* Author Styles */
+
+.author .thumbnail {
     max-width: 100px;
     max-height: 100px;
     margin: 0 15px 0 0;

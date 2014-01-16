@@ -9,7 +9,7 @@
             </h1>
 
             <div class="meta">
-                <span class="date pull-right">Posted on {{ $post->created_at->format('M t, Y') }}</span>
+                <span class="date pull-right">Posted: {{ $post->created_at->format('M t, Y') }}</span>
 
                 <div class="tags">
                     @foreach ($post->tags as $tag)
@@ -28,8 +28,8 @@
         <footer class="well">
             <img src="{{ $post->author->image->url }}" class="thumbnail pull-left" alt="{{{ $post->author->name }}}">
             <p>
-                {{{ $post->author->name }}} is a really smart web developer who
-                regulary contributes to this blog.
+                <a href="/author/{{ $post->author->id }}">{{{ $post->author->name }}}</a> is
+                a really smart web developer who regulary contributes to this blog.
             </p>
             <div class="clearfix"></div>
         </footer>
