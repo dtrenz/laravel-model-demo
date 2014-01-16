@@ -1,0 +1,87 @@
+@import url(http://fonts.googleapis.com/css?family=Exo+2:300,500,600,600italic,900italic);
+
+body {
+    font-family: 'Exo 2', 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+h1 {
+    font-family: 'Exo 2', 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+h2, h3, h4, h5 {
+    font-family: 'Exo 2', 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: 500;
+}
+
+em {
+    color: orange;
+}
+
+.container {
+    width: 970px !important;
+    min-height: 800px;
+}
+
+.navbar-brand {
+    font-family: 'Exo 2', 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+
+.sidebar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 1px solid rgb(231, 231, 231);
+    background-color: rgb(248, 248, 248);
+}
+
+.sidebar .search { margin-bottom: 15px; }
+
+.footer {
+    height: 75px;
+    margin-top: 30px;
+    line-height: 75px;
+    text-align: center;
+    color: #666;
+    background-color: #222;
+}
+
+
+/*
+* Post styles
+*/
+
+.post .meta {
+    height: 36px;
+    padding: 5px 8px;
+    background-color: #fafafa;
+    border-radius: 2px;
+}
+
+.post .tags {
+    line-height: 20px;
+}
+
+.post .tags .label {
+    line-height: 20px;
+    font-size: 0.6em;
+    font-weight: normal;
+}
+
+.post .tags .label.php       { background-color: #428BCA; }
+.post .tags .label.mysql     { background-color: #5CB85C; }
+.post .tags .label.mongodb   { background-color: #5BC0DE; }
+.post .tags .label.html      { background-color: #F0AD4E; }
+.post .tags .label.css       { background-color: #D9534F; }
+.post .tags .label.javscript { background-color: #463265; }
+
+.post footer { margin-top: 30px; }
+
+.post footer .thumbnail {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0 15px 0 0;
+}

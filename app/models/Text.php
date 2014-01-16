@@ -9,4 +9,14 @@ class Text extends Eloquent {
      */
     protected $table = 'texts';
 
+    /**
+     * Defines an inverse one-to-one relationship.
+     *
+     * @see http://laravel.com/docs/eloquent#one-to-one
+     */
+    public function post()
+    {
+        return $this->belongsTo('Post');
+    }
+
 }

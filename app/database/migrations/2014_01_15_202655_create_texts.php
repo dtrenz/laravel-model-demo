@@ -15,7 +15,8 @@ class CreateTexts extends Migration {
 		Schema::create('texts', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('text');
+			$table->integer('post_id');
+			$table->text('text');
 			$table->timestamps();
 		});
 	}

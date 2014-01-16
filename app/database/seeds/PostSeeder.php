@@ -1,6 +1,6 @@
 <?php
 
-class PostTableSeeder extends Seeder {
+class PostSeeder extends Seeder {
 
     public function run()
     {
@@ -8,27 +8,32 @@ class PostTableSeeder extends Seeder {
 
         Post::create(array(
             'id' => 1,
-            'title' => 'Post Title #1'
+            'author_id' => 1,
+            'title' => 'Post About HTML/CSS'
         ));
 
         Post::create(array(
             'id' => 2,
-            'title' => 'Post Title #2'
+            'author_id' => 2,
+            'title' => 'Post About PHP'
         ));
 
         Post::create(array(
             'id' => 3,
-            'title' => 'Post Title #3'
+            'author_id' => 1,
+            'title' => 'Post About PHP/MySQL'
         ));
 
         Post::create(array(
             'id' => 4,
-            'title' => 'Post Title #4'
+            'author_id' => 2,
+            'title' => 'Post About MongoDB'
         ));
 
         Post::create(array(
             'id' => 5,
-            'title' => 'Post Title #5'
+            'author_id' => 1,
+            'title' => 'Post About jQuery'
         ));
     }
 

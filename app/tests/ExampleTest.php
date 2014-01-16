@@ -18,11 +18,14 @@ class ExampleTest extends TestCase {
 
 # post
 #   - texts (1:1)
-#   - categories (1:*)
 #   - tags (*:*)
-#   - images (poly)
-#   - comments (1:*)
+#   ~ users (*:1)
+#   ~ images (poly)
 #
 # users
-#   - comments (1:*)
-#   - images (poly)
+#   - posts (1:*)
+#   ~ images (poly)
+#
+# images
+#   - posts (poly)
+#   - users (poly)

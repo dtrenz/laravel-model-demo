@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::model('post', 'Post');
+
+Route::get('/', 'HomeController@index');
+
+Route::get('/post/{post}', 'PostController@show');
+
+Route::get('/tag/{tag}', 'TagController@show');
