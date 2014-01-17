@@ -15,15 +15,62 @@ Setup
 -----
 
 1. Clone the repo
-2. Install Composer packages
-4. Create a database
-5. Update the DB connection config (i.e. host, database, username, password) in /app/config/database.php
-6. Run migrations
-7. Run DB seeders
+2. Install Composer packages (`composer install`)
+3. Create a database
+4. Update the DB connection config (i.e. host, database, username, password) in /app/config/database.php
+5. Run migrations (`php artisan migrate`)
+6. Run DB seeders (`php artisan db:seed`)
 
-```bash
-$ git clone https://github.com/dtrenz/laravel-model-demo && cd laravel-model-demo
-$ composer install
-$ php artisan migrate
-$ php artisan db:seed
+
+### Schema
 ```
+users
+  - id
+  - name
+  
+posts
+  - id
+  - title
+  - author_id (aliased user.id)
+  
+tags
+  - id
+  - name
+  
+post_tag (pivot table)
+  - post_id
+  - tag_id
+  
+texts
+  - id
+  - post_id
+  - text
+  
+images
+  - id
+  - url
+  - imageable_id
+  - imageable_type
+```
+
+### One-To-One
+A one-to-one relationship is not the most common type of relationship, hence the example in the context of this blog site demo is very contrived.
+
+The Post table/model only has a title, and the body text of each post lives in a separate table/model called Text; each post has one text.
+
+### One-To-Many
+Probably the most common relationship. In this example, there is a one-to-many relationship between authors/users and posts; each author can have many posts.
+
+### Many-To-Many
+A post can have many tags attached, and each tag can have many posts.
+
+### Polymorphic...To-Many
+The Image model can morph to be used as a user/author photo, or a primary post image.
+
+### Has-Many-Through
+By defining a Has-Many-Through relationship, one model can leap frog to an indirectly related (a/k/a no foreign key) model through a common model.
+
+In this example, you could fetch all tags attached to posts attributed to a given author. An __author__ *has many* __tags__ *through* __posts__.
+
+
+
