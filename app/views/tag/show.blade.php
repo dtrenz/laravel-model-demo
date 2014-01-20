@@ -6,7 +6,7 @@
     </div>
 
     <div class="row">
-        @foreach ($posts as $post)
+        @foreach ($tag->posts as $post)
             <div class="col-xs-12">
                 <h3>
                     <a href="/post/{{ $post->id }}">{{{ $post->title }}}</a>

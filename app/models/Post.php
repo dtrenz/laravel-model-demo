@@ -10,6 +10,13 @@ class Post extends Eloquent {
     protected $table = 'posts';
 
     /**
+     * Whitelisted model properties for mass assignment.
+     *
+     * @var array
+     */
+    protected $fillable = array('title');
+
+    /**
      * Defines a one-to-one relationship.
      *
      * @see http://laravel.com/docs/eloquent#one-to-one
@@ -47,6 +54,11 @@ class Post extends Eloquent {
     public function image()
     {
         return $this->morphOne('Image', 'imageable');
+    }
+
+    public function blurb()
+    {
+        return nl2br(Str::words($this->text->text, 20));
     }
 
 }

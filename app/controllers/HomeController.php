@@ -9,7 +9,12 @@ class HomeController extends BaseController {
 
     public function index()
     {
-        $posts = Post::all();
+        // hard-coding autologin of User #3,
+        // so we don't have to implement Auth for the scope of this demo.
+        $user = User::find(3);
+        Auth::login($user);
+
+        $posts = Post::orderBy('created_at', 'desc')->get();
 
         $this->layout->content = View::make('home')->with('posts', $posts);
     }

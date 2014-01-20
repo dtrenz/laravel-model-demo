@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Exo+2:300,500,600,600italic,900italic);
 
 body {
+    min-height: 800px;
     font-family: 'Exo 2', 'Helvetica Neue', Helvetica, sans-serif;
     font-weight: 300;
     font-size: 18px;
@@ -22,7 +23,6 @@ em {
 
 .container {
     width: 970px !important;
-    min-height: 800px;
 }
 
 .navbar-brand {
@@ -63,6 +63,8 @@ em {
     line-height: 20px;
 }
 
+.post .tags a:hover { text-decoration: none; }
+
 .post .tags .label {
     line-height: 20px;
     font-size: 0.6em;
@@ -74,7 +76,7 @@ em {
 .post .tags .label.mongodb   { background-color: #5BC0DE; }
 .post .tags .label.html      { background-color: #F0AD4E; }
 .post .tags .label.css       { background-color: #D9534F; }
-.post .tags .label.javscript { background-color: #463265; }
+.post .tags .label.javascript { background-color: #463265; }
 
 .post footer { margin-top: 30px; }
 

@@ -18,6 +18,13 @@ class ImageSeeder extends Seeder {
             'imageable_type' => 'User',
         ));
 
+
+        Image::create(array(
+            'url' => 'https://pbs.twimg.com/profile_images/3176252637/6e9b4c8a7223b2789ce2791c6fbd4872.png',
+            'imageable_id' => 3,
+            'imageable_type' => 'User',
+        ));
+
         Image::create(array(
             'url' => '/images/code.png',
             'imageable_id' => 1,

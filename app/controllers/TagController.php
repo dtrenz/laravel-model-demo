@@ -17,16 +17,7 @@ class TagController extends \BaseController {
     {
         $tag = Tag::where('name', 'like', $name)->first();
 
-        $posts = Post::whereHas('tags', function ($q) use ($tag) {
-                $q->where('name', 'like', $tag->name);
-            })->get();
-
-        $data = array(
-            'tag'   => $tag,
-            'posts' => $posts
-        );
-
-        $this->layout->content = View::make('tag.show')->with($data);
+        $this->layout->content = View::make('tag.show')->with('tag', $tag);
     }
 
 }

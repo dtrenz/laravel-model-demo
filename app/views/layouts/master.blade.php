@@ -12,8 +12,18 @@
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">My Code Blog</a>
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">My Code Blog</a>
+                </div>
+
+                @if (Auth::check())
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" class="active">{{ Auth::user()->name }}</a>
+                        </li>
+                    </ul>
+                @endif
             </div>
         </nav>
 
@@ -48,6 +58,10 @@
                                     </li>
                                 @endforeach
                             </ul>
+                        </div>
+
+                        <div class="text-center">
+                            <a href="/post/create" class="btn btn-success" title="create a new post">Create New Post</a>
                         </div>
                     @show
                 </div>

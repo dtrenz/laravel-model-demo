@@ -14,7 +14,7 @@ class PostController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$this->layout->content = View::make('post.create');
 	}
 
 	/**
@@ -24,7 +24,51 @@ class PostController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		// get POST data
+		$input = Input::all();
+
+		// set validation rules
+		$rules = array(
+			'title' => 'required',
+			'text'  => 'required',
+			'image'  => 'required',
+		);
+
+		// validate input
+		$validation = Validator::make($input, $rules);
+
+		// if validation fails, return the user to the form w/ validation errors
+		if ($validation->fails()) {
+			return Redirect::back()->withErrors($validation)->withInput();
+		} else {
+			// create new Post instance
+			$post = Post::create(array('title' => $input['title']));
+
+			// create Text instance w/ text body
+			$text = Text::create(array('text' => $input['text']));
+
+			// save new Text and associate w/ new post
+			$post->text()->save($text);
+
+			// create the new Image
+			$image = Image::create(array('url' => $input['image']));
+
+			// save new Text and associate w/ new post
+			$post->image()->save($image);
+
+			if (isset($input['tags'])) {
+				foreach ($input['tags'] as $tagId) {
+					$tag = Tag::find($tagId);
+					$post->tags()->save($tag);
+				}
+			}
+
+			// associate the post with the current user
+			$post->author()->associate(Auth::user())->save();
+
+			// redirect to newly created post page
+			return Redirect::route('post.show', array($post->id));
+		}
 	}
 
 	/**
@@ -38,37 +82,19 @@ class PostController extends \BaseController {
 		$this->layout->content = View::make('post.show')->with('post', $post);
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

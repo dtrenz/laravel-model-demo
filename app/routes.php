@@ -16,7 +16,8 @@ Route::model('user', 'User');
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/post/{post}', 'PostController@show');
+Route::resource('post', 'PostController');
+// Route::get('/post/{post}', 'PostController@show');
 
 Route::get('/tag/{name}', 'TagController@show');
 

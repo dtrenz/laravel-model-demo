@@ -1,6 +1,8 @@
 <?php
 
-class User extends Eloquent {
+use Illuminate\Auth\UserInterface;
+
+class User extends Eloquent implements UserInterface {
 
 	/**
 	 * The database table used by the model.
@@ -8,6 +10,33 @@ class User extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'users';
+
+    /**
+     * Whitelisted model properties for mass assignment.
+     *
+     * @var array
+     */
+    protected $fillable = array('name');
+
+    /**
+     * Get the unique identifier for the user.
+     *
+     * @return mixed
+     */
+    public function getAuthIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->password;
+    }
 
     /**
      * Defines a one-to-many relationship.
@@ -32,7 +61,7 @@ class User extends Eloquent {
     /**
      * Defines a has-many-through relationship.
      *
-     * @see http://laravel.com/docs/eloquent#polymorphic-relations
+     * @see http://laravel.com/docs/eloquent#has-many-through
      */
     public function tags()
     {

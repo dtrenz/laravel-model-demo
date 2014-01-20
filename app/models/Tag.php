@@ -10,6 +10,13 @@ class Tag extends Eloquent {
     protected $table = 'tags';
 
     /**
+     * Whitelisted model properties for mass assignment.
+     *
+     * @var array
+     */
+    protected $fillable = array('name');
+
+    /**
      * Defines a many-to-many relationship.
      *
      * @see http://laravel.com/docs/eloquent#many-to-many
