@@ -15,11 +15,6 @@ class UserSeeder extends Seeder {
             'id' => 2,
             'name' => 'Grumpy Cat'
         ));
-
-        User::create(array(
-            'id' => 3,
-            'name' => 'Dan Trenz'
-        ));
     }
 
 }
