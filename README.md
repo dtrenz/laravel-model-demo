@@ -1,6 +1,8 @@
 Eloquent Model Relationship Demo
 ==============================================
 
+This project is a companion to this article: http://codeplanet.io/laravel-model-relationships-pt-1/
+
 This Laravel project is meant to illustrate the various Eloquent model relationships available in Laravel 4.1, including;
 
 * One-To-One
