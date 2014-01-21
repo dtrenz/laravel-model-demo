@@ -58,16 +58,6 @@ class User extends Eloquent implements UserInterface {
         return $this->morphOne('Image', 'imageable');
     }
 
-    /**
-     * Defines a has-many-through relationship.
-     *
-     * @see http://laravel.com/docs/eloquent#has-many-through
-     */
-    public function tags()
-    {
-        return $this->hasManyThrough('Tag', 'Post', 'author_id');
-    }
-
 }
 
 

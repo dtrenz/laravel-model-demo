@@ -56,9 +56,4 @@ class Post extends Eloquent {
         return $this->morphOne('Image', 'imageable');
     }
 
-    public function blurb()
-    {
-        return nl2br(Str::words($this->text->text, 20));
-    }
-
 }
