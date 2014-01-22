@@ -21,11 +21,13 @@
             </div>
 
             <div class="panel-body">
-                @foreach ($author->tags() as $tag)
-                    <a href="/tag/{{ Str::lower($tag->name) }}">
-                        <span class="label {{ Str::lower($tag->name) }}">{{ $tag->name }}</span>
-                    </a>
-                @endforeach
+                <ul>
+                    @foreach ($author->tags() as $tag)
+                        <li>
+                            <a href="/tag/{{ Str::lower($tag->name) }}">{{ $tag->name }}</a>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
 
