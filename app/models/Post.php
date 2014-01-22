@@ -47,6 +47,16 @@ class Post extends Eloquent {
     }
 
     /**
+     * Defines an inverse one-to-many relationship.
+     *
+     * @see http://laravel.com/docs/eloquent#one-to-many
+     */
+    public function category()
+    {
+        return $this->belongsTo('Category');
+    }
+
+    /**
      * Defines a polymorphic one-to-one relationship.
      *
      * @see http://laravel.com/docs/eloquent#polymorphic-relations
@@ -54,11 +64,6 @@ class Post extends Eloquent {
     public function image()
     {
         return $this->morphOne('Image', 'imageable');
-    }
-
-    public function blurb()
-    {
-        return nl2br(Str::words($this->text->text, 20));
     }
 
 }

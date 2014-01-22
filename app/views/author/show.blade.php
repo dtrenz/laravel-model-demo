@@ -43,7 +43,7 @@
                     </h3>
 
                     <blockquote>
-                        {{ $post->blurb() }}
+                        {{ nl2br(Str::words($this->text->text, 20)) }}
                     </blockquote>
                 @endforeach
             </div>

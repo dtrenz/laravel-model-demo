@@ -13,6 +13,7 @@
 
 Route::model('post', 'Post');
 Route::model('user', 'User');
+Route::model('category', 'Category');
 
 Route::get('/', 'HomeController@index');
 
@@ -22,3 +23,5 @@ Route::resource('post', 'PostController');
 Route::get('/tag/{name}', 'TagController@show');
 
 Route::get('/author/{user}', 'AuthorController@show');
+
+Route::get('/category/{category}', 'CategoryController@show');

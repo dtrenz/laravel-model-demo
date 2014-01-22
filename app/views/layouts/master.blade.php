@@ -17,6 +17,12 @@
                     <a class="navbar-brand" href="/">My Code Blog</a>
                 </div>
 
+                <ul class="nav navbar-nav">
+                    @foreach (Category::all() as $category)
+                        <li><a href="/category/{{ $category->id }}">{{ $category->name }}</a></li>
+                    @endforeach
+                </ul>
+
                 @if (Auth::check())
                     <ul class="nav navbar-nav navbar-right">
                         <li>

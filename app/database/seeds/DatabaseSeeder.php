@@ -11,11 +11,12 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		$this->call('ImageSeeder');
 		$this->call('PostSeeder');
-		$this->call('TagSeeder');
 		$this->call('TextSeeder');
+		$this->call('TagSeeder');
 		$this->call('UserSeeder');
+		$this->call('ImageSeeder');
+		$this->call('CategorySeeder');
 	}
 
 }
