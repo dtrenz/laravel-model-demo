@@ -10,6 +10,13 @@ class Image extends Eloquent {
     protected $table = 'images';
 
     /**
+     * Whether or not to enable timestamps.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * Whitelisted model properties for mass assignment.
      *
      * @var array

@@ -14,15 +14,19 @@ class CreateTags extends Migration {
 	{
 		Schema::create('tags', function(Blueprint $table)
 		{
+			// columns
 			$table->increments('id');
 			$table->string('name');
-			$table->timestamps();
 		});
 
 		Schema::create('post_tag', function(Blueprint $table)
 		{
+			// columns
 			$table->integer('post_id');
 			$table->integer('tag_id');
+
+			// indexes
+			$table->index(array('post_id', 'tag_id'));
 		});
 	}
 

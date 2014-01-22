@@ -10,6 +10,13 @@ class Text extends Eloquent {
     protected $table = 'texts';
 
     /**
+     * Whether or not to enable timestamps.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * Whitelisted model properties for mass assignment.
      *
      * @var array

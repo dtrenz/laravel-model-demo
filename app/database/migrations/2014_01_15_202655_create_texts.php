@@ -14,10 +14,13 @@ class CreateTexts extends Migration {
 	{
 		Schema::create('texts', function(Blueprint $table)
 		{
+			// columns
 			$table->increments('id');
-			$table->integer('post_id');
 			$table->text('text');
-			$table->timestamps();
+			$table->integer('post_id');
+
+			// indexes
+			$table->index('post_id');
 		});
 	}
 
