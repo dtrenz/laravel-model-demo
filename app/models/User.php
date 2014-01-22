@@ -59,13 +59,28 @@ class User extends Eloquent implements UserInterface {
     }
 
     /**
-     * Defines a has-many-through relationship.
+     * Get all distinct tags attached to all posts by author.
+     * Can't use hasManyThrough on ManyToMany relationships, so we do this instead.
      *
-     * @see http://laravel.com/docs/eloquent#has-many-through
+     * @return array
      */
     public function tags()
     {
-        return $this->hasManyThrough('Tag', 'Post', 'author_id');
+        $tags = array();
+
+        $rows = Tag::select('tags.id', 'tags.name')
+                   ->join('post_tag', 'tags.id', '=', 'post_tag.tag_id')
+                   ->join('posts', 'post_tag.post_id', '=', 'posts.id')
+                   ->where('posts.author_id', $this->id)
+                   ->groupBy('tags.id')
+                   ->orderBy('tags.name')
+                   ->get();
+
+        foreach ($rows as $row) {
+            $tags[] = $row;
+        }
+
+        return $tags;
     }
 
 }

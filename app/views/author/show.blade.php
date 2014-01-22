@@ -15,24 +15,19 @@
             <div class="clearfix"></div>
         </header>
 
-        <?php /*
-
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Tags</h3>
             </div>
 
             <div class="panel-body">
-            <?php
-                @foreach ($author->tags as $tag)
+                @foreach ($author->tags() as $tag)
                     <a href="/tag/{{ Str::lower($tag->name) }}">
-                        <span class="label {{ Str::lower($tag->name) }}">{{ Str::upper($tag->name) }}</span>
+                        <span class="label {{ Str::lower($tag->name) }}">{{ $tag->name }}</span>
                     </a>
                 @endforeach
-            ?>
             </div>
         </div>
-        */ ?>
 
         <div class="panel panel-default">
             <div class="panel-heading">

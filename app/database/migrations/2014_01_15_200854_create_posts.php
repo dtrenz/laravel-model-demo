@@ -14,10 +14,15 @@ class CreatePosts extends Migration {
 	{
 		Schema::create('posts', function(Blueprint $table)
 		{
+			// columns
 			$table->increments('id');
 			$table->string('title');
 			$table->integer('author_id');
 			$table->timestamps();
+
+			// indexes
+			$table->index('author_id');
+			$table->index('created_at');
 		});
 	}
 
