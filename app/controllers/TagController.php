@@ -15,7 +15,8 @@ class TagController extends \BaseController {
      */
     public function show($name)
     {
-        $tag = Tag::where('name', 'like', $name)->first();
+        // get tag by tag name, eager load posts
+        $tag = Tag::with('posts')->where('name', 'like', $name)->first();
 
         $this->layout->content = View::make('tag.show')->with('tag', $tag);
     }

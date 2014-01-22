@@ -34,4 +34,19 @@
             <div class="clearfix"></div>
         </footer>
     </section>
+
+    <section class="comments">
+        <header>
+            <h2>Comments</h2>
+        </header>
+
+        @foreach ($post->comments as $comment)
+            <div class="row">
+                <div class="col-xs-12">
+                    {{{ $comment->user->name }}}:
+                    <blockquote>{{{ $comment->text}}}</blockquote>
+                </div>
+            </div>
+        @endforeach
+    </section>
 @stop

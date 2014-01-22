@@ -15,6 +15,7 @@ class AuthorController extends \BaseController {
      */
     public function show(User $author)
     {
+        // Lazy Eager Loading
         $author->load('posts');
 
         $this->layout->content = View::make('author.show')->with('author', $author);

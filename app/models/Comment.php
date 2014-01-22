@@ -31,7 +31,7 @@ class Comment extends Eloquent {
      *
      * @see http://laravel.com/docs/eloquent#one-to-many
      */
-    public function author()
+    public function user()
     {
         return $this->belongsTo('User');
     }

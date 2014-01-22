@@ -14,7 +14,8 @@ class HomeController extends BaseController {
         $user = User::find(2);
         Auth::login($user);
 
-        $posts = Post::orderBy('created_at', 'desc')->get();
+        // get recent posts, and eager load texts
+        $posts = Post::with('text')->orderBy('created_at', 'desc')->get();
 
         $this->layout->content = View::make('home')->with('posts', $posts);
     }

@@ -15,6 +15,7 @@ class CategoryController extends \BaseController {
      */
     public function show(Category $category)
     {
+        // Lazy Eager Loading
         $category->load('comments');
 
         $this->layout->content = View::make('category.show')->with('category', $category);

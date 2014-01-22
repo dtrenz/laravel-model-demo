@@ -79,6 +79,9 @@ class PostController extends \BaseController {
 	 */
 	public function show(Post $post)
 	{
+		// lazy eager loading
+		$post->load('text', 'author', 'tags', 'image', 'comments');
+
 		$this->layout->content = View::make('post.show')->with('post', $post);
 	}
 

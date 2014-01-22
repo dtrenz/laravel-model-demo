@@ -29,7 +29,7 @@ class Category extends Eloquent {
     /**
      * Defines a has-many-through relationship.
      *
-     * @see http://laravel.com/docs/eloquent#one-to-many
+     * @see http://laravel.com/docs/eloquent#has-many-through
      */
     public function comments()
     {

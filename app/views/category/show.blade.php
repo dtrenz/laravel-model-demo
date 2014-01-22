@@ -10,6 +10,7 @@
             <h2>Comments on posts in this category:</h2>
 
             @foreach ($category->comments as $comment)
+                {{{ $comment->user->name }}}:
                 <blockquote>
                     "{{{ $comment->text }}}"
                 </blockquote>
