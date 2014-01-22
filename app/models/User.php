@@ -83,6 +83,16 @@ class User extends Eloquent implements UserInterface {
         return $tags;
     }
 
+    /**
+     * Defines a one-to-many relationship.
+     *
+     * @see http://laravel.com/docs/eloquent#one-to-many
+     */
+    public function comments()
+    {
+        return $this->hasMany('Comment');
+    }
+
 }
 
 

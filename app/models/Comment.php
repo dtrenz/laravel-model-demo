@@ -1,13 +1,13 @@
 <?php
 
-class Category extends Eloquent {
+class Comment extends Eloquent {
 
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'categories';
+    protected $table = 'comments';
 
     /**
      * Whether or not to enable timestamps.
@@ -17,23 +17,23 @@ class Category extends Eloquent {
     public $timestamps = false;
 
     /**
-     * Defines a one-to-many relationship.
+     * Defines an inverse one-to-many relationship.
      *
      * @see http://laravel.com/docs/eloquent#one-to-many
      */
-    public function posts()
+    public function post()
     {
-        return $this->hasMany('Post');
+        return $this->belongsTo('Post');
     }
 
     /**
-     * Defines a has-many-through relationship.
+     * Defines an inverse one-to-many relationship.
      *
      * @see http://laravel.com/docs/eloquent#one-to-many
      */
-    public function comments()
+    public function author()
     {
-        return $this->hasManyThrough('Comment', 'Post');
+        return $this->belongsTo('User');
     }
 
 }
