@@ -13,7 +13,7 @@
 
                 <div class="tags">
                     @foreach ($post->tags as $tag)
-                        <a href="/tag/{{ Str::lower($tag->name) }}">
+                        <a href="URL::to('/tag/'.Str::lower($tag->name)) }}">
                             <span class="label {{ Str::lower($tag->name) }}">{{ Str::upper($tag->name) }}</span>
                         </a>
                     @endforeach
@@ -21,14 +21,14 @@
             </div>
         </header>
 
-        <img src="{{ $post->image->url }}" width="100%" alt="{{{ $post->title }}}">
+        <img src="{{ URL::asset($post->image->url) }}" width="100%" alt="{{{ $post->title }}}">
 
         <p>{{ nl2br($post->text->text) }}</p>
 
         <footer class="well">
-            <img src="{{ $post->author->image->url }}" class="thumbnail pull-left" alt="{{{ $post->author->name }}}">
+            <img src="{{ URL::asset($post->author->image->url) }}" class="thumbnail pull-left" alt="{{{ $post->author->name }}}">
             <p>
-                <a href="/author/{{ $post->author->id }}">{{{ $post->author->name }}}</a> is
+                <a href="{{ URL::to('/author/'.$post->author->id) }}">{{{ $post->author->name }}}</a> is
                 a really smart web developer who regulary contributes to this blog.
             </p>
             <div class="clearfix"></div>

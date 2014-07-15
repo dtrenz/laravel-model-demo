@@ -86,18 +86,3 @@ class PostController extends \BaseController {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

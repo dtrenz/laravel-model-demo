@@ -9,7 +9,7 @@
         @foreach ($posts as $post)
             <div class="col-xs-12">
             	<h3>
-                	<a href="/post/{{ $post->id }}">{{{ $post->title }}}</a>
+                	<a href="{{ URL::to('/post/'.$post->id) }}">{{{ $post->title }}}</a>
             	</h3>
 
             	<blockquote>
