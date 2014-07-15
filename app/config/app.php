@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost/laravel-orm',
+	'url' => 'http://localhost',
 
 	/*
 	|--------------------------------------------------------------------------
