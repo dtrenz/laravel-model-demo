@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="page-header">
-		<h1>Recent Posts</h1>
+		<h1>Latest Posts</h1>
 	</div>
 
     <div class="row">
