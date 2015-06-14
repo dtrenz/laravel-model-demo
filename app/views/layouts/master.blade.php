@@ -8,23 +8,24 @@
 
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="{{ URL::asset('todc-bootstrap/css/todc-bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     </head>
     <body>
-        <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <nav class="navbar navbar" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/">My Code Blog</a>
+                    <a class="navbar-brand" href="{{ URL::to('/') }}">My Code Blog</a>
                 </div>
 
-                <ul class="nav navbar-nav">
+                <ul class="nav nav-pills navbar-right">
                     @foreach (Category::all() as $category)
-                        <li><a href="/category/{{ $category->id }}">{{ $category->name }}</a></li>
+                        <li><a href="{{ URL::to('/category/'.$category->id) }}">{{ $category->name }}</a></li>
                     @endforeach
                 </ul>
 
                 @if (Auth::check())
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav nav-pills navbar-right">
                         <li>
                             <a href="#" class="active">{{ Auth::user()->name }}</a>
                         </li>
@@ -60,14 +61,14 @@
                             <ul>
                                 @foreach (Tag::all() as $tag)
                                     <li>
-                                        <a href="/tag/{{ Str::lower($tag->name) }}">{{ $tag->name }}</a>
+                                        <a href="{{ URL::to('/tag/'.Str::lower($tag->name)) }}">{{ $tag->name }}</a>
                                     </li>
                                 @endforeach
                             </ul>
                         </div>
 
                         <div class="text-center">
-                            <a href="/post/create" class="btn btn-success" title="create a new post">Create New Post</a>
+                            <a href="{{ URL::to('/post/create') }}" class="btn btn-success" title="create a new post">Create New Post</a>
                         </div>
                     @show
                 </div>

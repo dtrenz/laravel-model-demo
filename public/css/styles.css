@@ -5,6 +5,7 @@ body {
     font-family: 'Exo 2', 'Helvetica Neue', Helvetica, sans-serif;
     font-weight: 300;
     font-size: 18px;
+    padding-top: 20px;
 }
 
 h1 {
@@ -26,9 +27,10 @@ em {
 }
 
 .navbar-brand {
-    font-family: 'Exo 2', 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: Calibri;
     font-weight: 900;
-    font-style: italic;
+    color: gray;
+    font-size: 20px;
 }
 
 .sidebar {
